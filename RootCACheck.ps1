@@ -14,6 +14,7 @@ Write-Host "Microsoft CSV data loaded into memory"
 
 # Define the stores you want to check
 $stores = @("Root")
+#$stores = @("Root", "CA", "AuthRoot", "TrustedPublisher", "Disallowed", "My")
 
 # Initialize an array to hold the certificate fingerprints from the local machine
 $localCertFingerprints = @()
