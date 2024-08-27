@@ -15,7 +15,7 @@ PowerShell Script to Validate Windows Root CA Trust Store
 
 ## How to use
 
-Open a PowerShell (PS) and execute the script:
+Open a low-priv PowerShell (PS) and execute the script:
 
 ````
 .\audit.ps1
