@@ -63,12 +63,15 @@ foreach ($storeName in $stores) {
     $store.Close()
 }
 
-# Output the results of unmatched certificates to a CSV file
-$localCertFingerprints | Export-Csv -Path ".\Unmatched_Certs.csv" -NoTypeInformation
+# Sort the results by StoreName and then by Subject
+$sortedCertFingerprints = $localCertFingerprints | Sort-Object StoreName, Subject
 
-# Optionally, display the results in the console
+# Output the sorted results to a CSV file
+$sortedCertFingerprints | Export-Csv -Path ".\Unmatched_Certs.csv" -NoTypeInformation
+
+# Optionally, display the sorted results in the console
 Write-Host ""
 Write-Host "[!] The following CAs do not match and are unknown:"
-$localCertFingerprints | Format-Table -AutoSize
+$sortedCertFingerprints | Format-Table -AutoSize
 
 Write-Host "Unmatched certificates have been saved to .\Unmatched_Certs.csv"
