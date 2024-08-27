@@ -5,12 +5,13 @@ $microsoftCsvUrl = "https://ccadb-public.secure.force.com/microsoft/IncludedCACe
 # Download the Mozilla CSV and load into memory
 $mozillaCsvContent = Invoke-WebRequest -Uri $mozillaCsvUrl
 $mozillaCerts = $mozillaCsvContent.Content | ConvertFrom-Csv
-Write-Host "Mozilla CSV data loaded into memory"
+Write-Host "[i] Mozilla CSV data loaded into memory"
 
 # Download the Microsoft CSV and load into memory
 $microsoftCsvContent = Invoke-WebRequest -Uri $microsoftCsvUrl
 $microsoftCerts = $microsoftCsvContent.Content | ConvertFrom-Csv
-Write-Host "Microsoft CSV data loaded into memory"
+Write-Host "[i] Microsoft CSV data loaded into memory"
+Write-Host ""
 
 # Define the stores you want to check
 $stores = @("Root")
@@ -66,6 +67,8 @@ foreach ($storeName in $stores) {
 $localCertFingerprints | Export-Csv -Path ".\Unmatched_Certs.csv" -NoTypeInformation
 
 # Optionally, display the results in the console
+Write-Host ""
+Write-Host "[!] The following CAs do not match and are unknown:"
 $localCertFingerprints | Format-Table -AutoSize
 
 Write-Host "Unmatched certificates have been saved to .\Unmatched_Certs.csv"
