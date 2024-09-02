@@ -13,6 +13,10 @@ PowerShell Script to Validate Windows Root CA Trust Store
 Open a low-priv PowerShell (PS) and execute the script:
 
 ````
+# locally
 .\RootCACheck.ps1
+
+# or via IEX into memory
+IEX(New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com/l4rm4nd/Windows-Root-CA-Store-Checker/main/RootCACheck.ps1")
 ````
 ![image](https://github.com/user-attachments/assets/06f686f5-97f4-462e-b1bd-154a471614dc)
