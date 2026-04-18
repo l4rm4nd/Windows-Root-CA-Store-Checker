@@ -1,6 +1,6 @@
 # Define URLs for the Mozilla and Microsoft Included CA Certificate Reports
 $mozillaCsvUrl = "https://ccadb.my.salesforce-sites.com/mozilla/IncludedCACertificateReportCSVFormat"
-$microsoftCsvUrl = "https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFTCSV"
+$microsoftCsvUrl = "https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFTCSV"
 
 # Download the Mozilla CSV and load into memory
 $mozillaCsvContent = Invoke-WebRequest -Uri $mozillaCsvUrl
